@@ -1,0 +1,17 @@
+langgraph
+langchain
+langchain-core
+langchain-google-genai
+langchain-community
+tavily-python
+pymongo
+motor
+fastapi
+uvicorn
+streamlit
+python-dotenv
+pydantic
+python-multipart
+httpx
+pytest
+langchain-groq
