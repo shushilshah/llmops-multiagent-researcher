@@ -4,7 +4,7 @@ An autonomous AI research system where **5 specialized agents** collaborate to a
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![LangGraph](https://img.shields.io/badge/LangGraph-0.2-green)
-![Gemini](https://img.shields.io/badge/LLM-Gemini%201.5-orange)
+![Groq](https://img.shields.io/badge/LLM-Groq%201.5-orange)
 ![Tavily](https://img.shields.io/badge/Search-Tavily-purple)
 ![MongoDB](https://img.shields.io/badge/Memory-MongoDB-green)
 
@@ -25,7 +25,7 @@ User Question
 └──────┬──────┘
        ▼
 ┌─────────────┐
-│   Reader    │ → Gemini summarizes each source
+│   Reader    │ → Groq summarizes each source
 └──────┬──────┘
        ▼
 ┌─────────────┐
@@ -46,7 +46,7 @@ User Question
 | Component | Technology |
 |-----------|-----------|
 | Agent Orchestration | LangGraph |
-| LLM | Google Gemini 1.5 Flash |
+| LLM | Groq llama-3.3-70b-versatile |
 | Web Search | Tavily API |
 | Memory | MongoDB Atlas |
 | API | FastAPI |
@@ -86,7 +86,7 @@ python core/orchestrator.py
 
 | Variable | Description |
 |----------|-------------|
-| `GEMINI_API_KEY` | Google AI Studio API key |
+| `GROQ_API_KEY` | Groq API key |
 | `TAVILY_API_KEY` | Tavily search API key |
 | `MONGODB_URI` | MongoDB Atlas connection string |
 
