@@ -6,7 +6,7 @@ import certifi
 
 load_dotenv()
 
-MONGODB_URI = "mongodb+srv://shushil:admin@cluster0.rgh36r9.mongodb.net/?appName=Cluster0"
+MONGODB_URI = os.getenv("MONGODB_URI")
 MONGODB_DB = os.getenv("MONGODB_DB", "research_assistant")
 
 def get_db():
