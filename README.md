@@ -1,104 +1,60 @@
-# Multi-Agent Research Assistant
+---
+title: Multi Agent Research Assistant
+emoji: 🔬
+colorFrom: green
+colorTo: blue
+sdk: gradio
+sdk_version: 5.9.1
+app_file: app.py
+pinned: true
+---
 
-An autonomous AI research system where **5 specialized agents** collaborate to answer any research question with real web sources, quality critique, and a structured report.
+# 🔬 Multi-Agent Research Assistant
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![LangGraph](https://img.shields.io/badge/LangGraph-0.2-green)
-![Groq](https://img.shields.io/badge/LLM-Groq%201.5-orange)
-![Tavily](https://img.shields.io/badge/Search-Tavily-purple)
-![MongoDB](https://img.shields.io/badge/Memory-MongoDB-green)
+An autonomous AI system where **5 specialized agents** collaborate to research any topic — finding real web sources, summarizing them, critiquing quality, and synthesizing a structured report.
 
 ---
 
-## Agent Pipeline
+## How it works
 
-```
-User Question
-      │
-      ▼
-┌─────────────┐
-│   Planner   │ → breaks question into 3-5 search queries
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│   Searcher  │ → Tavily web search (real sources)
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│   Reader    │ → Groq summarizes each source
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│   Critic    │ → scores quality (1-10), detects gaps
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│   Writer    │ → structured markdown report
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│   MongoDB   │ → persists session + feedback
-└─────────────┘
-```
+Enter any research question and watch 5 agents work in sequence:
+
+| Agent | Role |
+|-------|------|
+| 🧠 **Planner** | Breaks your question into 3-5 specific search queries |
+| 🔍 **Searcher** | Finds real web sources via Tavily Search API |
+| 📖 **Reader** | Summarizes each source using Gemini 2.0 Flash |
+| ⚖️ **Critic** | Scores research quality (1-10) and detects gaps |
+| ✍️ **Writer** | Synthesizes everything into a structured markdown report |
+
+Every session is stored in **MongoDB Atlas** for history and feedback tracking.
+
+---
 
 ## Tech Stack
 
-| Component | Technology |
-|-----------|-----------|
-| Agent Orchestration | LangGraph |
-| LLM | Groq llama-3.3-70b-versatile |
-| Web Search | Tavily API |
-| Memory | MongoDB Atlas |
-| API | FastAPI |
-| UI | Streamlit + Gradio (HF Spaces) |
-| Containerization | Docker |
+- **Agent Orchestration** — LangGraph
+- **LLM** — Google Gemini 2.0 Flash
+- **Web Search** — Tavily API
+- **Memory** — MongoDB Atlas
+- **UI** — Gradio
+- **API** — FastAPI
+- **Containerization** — Docker
 
 ---
 
-## Quickstart
+## Example Questions
 
-```bash
-git clone https://github.com/shushilshah/multi-agent-research-assistant.git
-cd multi-agent-research-assistant
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-copy .env.example .env   # fill in your API keys
-```
-
-### Run locally
-```bash
-# Terminal 1 — API
-uvicorn api.main:app --reload --port 8000
-
-# Terminal 2 — UI
-streamlit run ui/app.py
-```
-
-### Test the pipeline directly
-```bash
-python core/orchestrator.py
-```
-
----
-
-## Environment Variables
-
-| Variable | Description |
-|----------|-------------|
-| `GROQ_API_KEY` | Groq API key |
-| `TAVILY_API_KEY` | Tavily search API key |
-| `MONGODB_URI` | MongoDB Atlas connection string |
-
----
-
-## Live Demo
-
-[Hugging Face Space →](https://huggingface.co/spaces/Sentogya/multi-agent-research)
+- What are the latest breakthroughs in large language models in 2025?
+- How is climate change affecting agriculture in Nepal?
+- What is the future of quantum computing?
+- How do transformer architectures work?
+- What skills do data scientists need in 2026?
 
 ---
 
 ## Author
 
-**Shushil Shah** — Data Scientist & ML Engineer  
-[LinkedIn](https://linkedin.com/in/shushilshah) · [GitHub](https://github.com/shushilshah)
+**Shushil Shah** — Data Scientist & ML Engineer
+
+[LinkedIn](https://linkedin.com/in/shushilshah) · [GitHub](https://github.com/shushilshah) · [Churn Prediction Demo](https://huggingface.co/spaces/Sentogya/churn-prediction)
